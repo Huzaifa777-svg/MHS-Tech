@@ -8,19 +8,13 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
-        window.addEventListener("scroll", handleScroll);
         if (isMenuOpen) {
             document.body.style.overflow = "hidden";
         } else {
             document.body.style.overflow = "unset";
         }
-        return () => window.removeEventListener("scroll", handleScroll);
     }, [isMenuOpen]);
 
     const navLinks = [
@@ -57,29 +51,28 @@ export default function Header() {
     };
 
     return (
-        <header
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? "bg-black/80 backdrop-blur-2xl border-b border-white/10 py-3" : "bg-transparent py-5"
-                }`}
-        >
-            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
+        <header className="w-full bg-black flex flex-col items-center pt-4 pb-6 border-b border-white/5 relative">
+            {/* Top Bar: Always visible, but contents change slightly */}
+            <div className="w-full max-w-7xl px-6 flex justify-between items-center relative h-16">
 
-                {/* Left: Email */}
-                <div className="hidden sm:flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center border border-orange-500/20">
-                        <Mail className="w-3.5 h-3.5 text-orange-500" />
+                {/* Left: Email (Desktop/Tablet) */}
+                <div className="flex items-center gap-2">
+                    <div className="w-9 h-9 rounded-full bg-orange-500/10 flex items-center justify-center border border-orange-500/20">
+                        <Mail className="w-4 h-4 text-orange-500" />
                     </div>
-                    <span className="hidden lg:block text-gray-400 text-[10px] font-black uppercase tracking-[0.2em]">huzaifamm70@gmail.com</span>
+                    <span className="hidden md:block text-white/90 text-sm font-bold tracking-wide uppercase tracking-[0.1em]">huzaifamm70@gmail.com</span>
                 </div>
 
-                {/* Center: Logo */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-30">
-                    <Link href="/" className="block">
-                        <div className="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center">
+                {/* Center: Large Logo (Desktop/Tablet) - Shown when not on narrow mobile */}
+                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-30 pointer-events-none">
+                    <Link href="/" className="block pointer-events-auto">
+                        <div className="relative w-36 h-36 md:w-56 md:h-56 flex items-center justify-center translate-y-2 md:translate-y-4">
+                            <div className="absolute inset-6 bg-white/5 blur-2xl rounded-full" />
                             <Image
                                 src="/images/logo.png"
                                 alt="MHS Tech"
                                 fill
-                                className="object-contain"
+                                className="object-contain p-2"
                                 priority
                                 unoptimized
                             />
@@ -87,32 +80,19 @@ export default function Header() {
                     </Link>
                 </div>
 
-                {/* Right: Actions */}
+                {/* Right: Socials (Desktop) & Menu Toggle (Mobile) */}
                 <div className="flex items-center gap-4">
-                    {/* Desktop Socials */}
-                    <div className="hidden md:flex items-center gap-4 mr-4">
-                        <Link href="https://facebook.com/share/1AQ7s2Dd2k/" target="_blank" className="text-gray-500 hover:text-orange-500 transition-colors">
-                            <Facebook className="w-4 h-4" />
+                    {/* Socials - Desktop/Tablet */}
+                    <div className="hidden sm:flex items-center gap-3">
+                        <Link href="https://facebook.com/share/1AQ7s2Dd2k/" target="_blank" className="w-10 h-10 rounded-lg border border-orange-500/30 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all text-orange-500">
+                            <Facebook className="w-5 h-5" />
                         </Link>
-                        <Link href="https://linkedin.com/in/muhammad-huzaifa-mhs" target="_blank" className="text-gray-500 hover:text-orange-500 transition-colors">
-                            <Linkedin className="w-4 h-4" />
+                        <Link href="https://linkedin.com/in/muhammad-huzaifa-mhs" target="_blank" className="w-10 h-10 rounded-lg border border-orange-500/30 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all text-orange-500">
+                            <Linkedin className="w-5 h-5" />
                         </Link>
                     </div>
 
-                    {/* Desktop Navigation */}
-                    <nav className="hidden lg:flex px-6 py-2 rounded-full border border-white/5 bg-white/5 backdrop-blur-md items-center gap-6">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className="text-white/60 hover:text-orange-500 transition-colors text-[9px] font-black uppercase tracking-[0.25em]"
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-                    </nav>
-
-                    {/* Mobile Menu Toggle */}
+                    {/* Mobile Menu Toggle - Small Screens Only */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         className="lg:hidden w-12 h-12 flex items-center justify-center rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-500 relative z-[60]"
@@ -122,6 +102,21 @@ export default function Header() {
                 </div>
             </div>
 
+            {/* Bottom: Desktop Navigation Pill (Hidden on Mobile) */}
+            <nav className="mt-14 md:mt-18 hidden lg:block">
+                <div className="px-8 md:px-12 py-3 rounded-full border border-orange-500/20 bg-white/5 backdrop-blur-xl flex items-center gap-6 md:gap-10 shadow-xl">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.name}
+                            href={link.href}
+                            className="text-white/70 hover:text-orange-500 transition-colors text-xs md:text-sm font-black uppercase tracking-[0.2em]"
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
+                </div>
+            </nav>
+
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {isMenuOpen && (
@@ -130,7 +125,7 @@ export default function Header() {
                         initial="closed"
                         animate="open"
                         exit="exit"
-                        className="fixed inset-0 bg-black/95 backdrop-blur-3xl z-50 lg:hidden flex flex-col p-8 pt-32 h-[100dvh]"
+                        className="fixed inset-0 bg-black/98 backdrop-blur-3xl z-50 lg:hidden flex flex-col p-8 pt-32 h-[100dvh]"
                     >
                         {/* Background Glow */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-orange-500/5 blur-[120px] rounded-full pointer-events-none" />
@@ -155,12 +150,12 @@ export default function Header() {
                             <Link
                                 href="/contact"
                                 onClick={() => setIsMenuOpen(false)}
-                                className="w-full sm:w-auto px-8 py-4 bg-orange-500 text-black rounded-2xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:scale-105 transition-transform"
+                                className="w-full sm:w-auto px-10 py-5 bg-orange-500 text-black rounded-2xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(249,115,22,0.3)]"
                             >
                                 Start a Project <ArrowRight className="w-4 h-4" />
                             </Link>
 
-                            <div className="flex gap-8 mt-12 py-8 border-t border-white/5 w-full justify-center sm:justify-start">
+                            <div className="flex gap-10 mt-12 py-8 border-t border-white/5 w-full justify-center sm:justify-start">
                                 <Link href="https://facebook.com/share/1AQ7s2Dd2k/" target="_blank" className="text-gray-500 hover:text-orange-500 transition-colors">
                                     <Facebook className="w-6 h-6" />
                                 </Link>
