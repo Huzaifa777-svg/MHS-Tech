@@ -1,7 +1,11 @@
-"use client";
-
 import ContactForm from "@/components/ContactForm";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Contact MHS Tech | Get a Quote for Your Digital Project",
+    description: "Ready to start your project? Contact MHS Tech for professional web development, mobile apps, and WordPress solutions.",
+};
 
 export default function ContactPage() {
     return (
@@ -39,7 +43,7 @@ export default function ContactPage() {
                             </div>
                             <div>
                                 <div className="text-sm text-gray-500">Call us</div>
-                                <div className="text-lg font-bold">+92 (Your Phone)</div>
+                                <div className="text-lg font-bold">03152931751</div>
                             </div>
                         </div>
 
