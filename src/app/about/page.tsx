@@ -5,6 +5,9 @@ export const metadata: Metadata = {
     title: "About MHS Tech | Professional Web & Software Development Company",
     description: "MHS Tech is a software company in Pakistan providing web development, eCommerce, custom software, and mobile app solutions for businesses.",
     keywords: "software house in Pakistan, web development company, custom software development, mobile app development, eCommerce development, SEO friendly software company",
+    alternates: {
+        canonical: "https://mhs-tech.vercel.app/about",
+    },
 };
 
 export default function AboutPage() {

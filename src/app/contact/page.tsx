@@ -5,6 +5,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Contact MHS Tech | Get a Quote for Your Digital Project",
     description: "Ready to start your project? Contact MHS Tech for professional web development, mobile apps, and WordPress solutions.",
+    alternates: {
+        canonical: "https://mhs-tech.vercel.app/contact",
+    },
 };
 
 export default function ContactPage() {

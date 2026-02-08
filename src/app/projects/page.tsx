@@ -5,6 +5,9 @@ export const metadata: Metadata = {
     title: "Our Projects | MHS Tech Portolio - High-Performance Web & App Solutions",
     description: "Explore the work of MHS Tech. From Premium E-Commerce Platforms to Learning Management Systems (LMS) and Professional Portfolios.",
     keywords: "E-Commerce Platform, Portfolio Website, Learning Management System, web development portfolio, MHS Tech projects, Next.js projects",
+    alternates: {
+        canonical: "https://mhs-tech.vercel.app/projects",
+    },
 };
 
 const projects = [

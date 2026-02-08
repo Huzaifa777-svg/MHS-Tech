@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: "Software Development Services | Web, App & eCommerce – MHS Tech",
     description: "Professional web development, eCommerce, custom software, and mobile app services by MHS Tech. Fast, secure, and scalable digital solutions for businesses.",
     keywords: "software development services, web development company, custom software development, mobile app development, eCommerce development, software house services",
+    alternates: {
+        canonical: "https://mhs-tech.vercel.app/services",
+    },
 };
 
 const services = [
