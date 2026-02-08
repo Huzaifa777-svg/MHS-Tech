@@ -6,6 +6,7 @@ import { sendEmail } from "@/app/actions";
 
 export default function ContactForm() {
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [errorMessage, setErrorMessage] = useState<string>("");
 
     async function handleSubmit(formData: FormData) {
         setStatus("loading");
@@ -13,8 +14,10 @@ export default function ContactForm() {
 
         if (result.success) {
             setStatus("success");
+            setErrorMessage("");
         } else {
             setStatus("error");
+            setErrorMessage(result.error || "Failed to send message. Please try again.");
             console.error(result.error);
         }
     }
@@ -73,9 +76,10 @@ export default function ContactForm() {
                         <p className="text-emerald-500 text-center font-medium mt-4">
                             Message sent successfully! We will contact you soon.
                         </p>
-                    ) || status === "error" && (
+                    )}
+                    {status === "error" && (
                         <p className="text-red-500 text-center font-medium mt-4">
-                            Failed to send message. Please try again.
+                            {errorMessage}
                         </p>
                     )}
                 </form>
