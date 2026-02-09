@@ -5,8 +5,7 @@ import { Metadata } from "next";
 import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "MHS Tech – Web Development, WordPress, E-Commerce & Mobile App Development Company in Karachi Pakistan
-",
+  title: "MHS Tech – Web Development| WordPress| E-Commerce & Mobile App Development Company in Karachi Pakistan",
   description: "We build professional websites, eCommerce stores, and custom business software. Trusted MHS Tech for fast, secure, and SEO-optimized development.",
   alternates: {
     canonical: "https://mhs-tech.vercel.app/",
