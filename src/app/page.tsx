@@ -4,13 +4,79 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { Check } from "lucide-react";
 
+
 export const metadata: Metadata = {
-  title: "MHS Tech – Web Development| WordPress| E-Commerce & Mobile App Development Company in Karachi Pakistan",
-  description: "We build professional websites, eCommerce stores, and custom business software. Trusted MHS Tech for fast, secure, and SEO-optimized development.",
+  title:
+    "MHS Tech – Web Development, WordPress, E-Commerce & Mobile App Development Company in Karachi Pakistan",
+
+  description:
+    "MHS Tech is a professional software house in Karachi, Pakistan providing Web Development, WordPress Development, E-Commerce solutions, and Mobile App Development. We build fast, secure, and SEO-optimized websites that grow your business and increase sales.",
+
+  keywords: [
+    "Software House in Karachi",
+    "Web Development Company Pakistan",
+    "WordPress Development",
+    "E-Commerce Website Development",
+    "Mobile App Development Pakistan",
+    "Custom Software Development",
+    "SEO Optimized Website",
+    "Website Design Company Karachi",
+    "Best Software House Pakistan",
+  ],
+
+  authors: [{ name: "MHS Tech" }],
+  creator: "MHS Tech",
+  publisher: "MHS Tech",
+
+  metadataBase: new URL("https://mhs-tech.vercel.app/"),
+
   alternates: {
     canonical: "https://mhs-tech.vercel.app/",
   },
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  openGraph: {
+    title:
+      "MHS Tech – Professional Web Development & Software House in Karachi Pakistan",
+    description:
+      "MHS Tech provides Web Development, WordPress, E-Commerce, and Mobile App Development services in Pakistan. We build fast, secure, and SEO-optimized websites for business growth.",
+    url: "https://mhs-tech.vercel.app/",
+    siteName: "MHS Tech",
+    locale: "en_PK",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "MHS Tech – Web Development, WordPress & E-Commerce Company in Pakistan",
+    description:
+      "Professional software house in Karachi providing Web Development, WordPress, E-Commerce, and Mobile App Development services.",
+  },
+
+  category: "technology",
 };
+
+
+// export const metadata: Metadata = {
+//   title: "MHS Tech – Web Development| WordPress| E-Commerce & Mobile App Development Company in Karachi Pakistan",
+//   description: "We build professional websites, eCommerce stores, and custom business software. Trusted MHS Tech for fast, secure, and SEO-optimized development.",
+//   alternates: {
+//     canonical: "https://mhs-tech.vercel.app/",
+//   },
+// };
 
 export default function Home() {
   return (
