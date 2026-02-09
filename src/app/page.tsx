@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 
   openGraph: {
     title:
-      "MHS Tech – Professional Web Development & Software House in Karachi Pakistan",
+      "MHS Tech - Web & Mobile App Development | Software House",
     description:
       "MHS Tech provides Web Development, WordPress, E-Commerce, and Mobile App Development services in Pakistan. We build fast, secure, and SEO-optimized websites for business growth.",
     url: "https://mhs-tech.vercel.app/",
