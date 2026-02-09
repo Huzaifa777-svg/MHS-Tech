@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "MHS Tech – Web Development, WordPress, E-Commerce & Mobile App Development Company in Karachi Pakistan",
 
   description:
-    "MHS Tech is a professional software house in Karachi, Pakistan providing Web Development, WordPress Development, E-Commerce solutions, and Mobile App Development. We build fast, secure, and SEO-optimized websites that grow your business and increase sales.",
+    "MHS Tech provides professional web, mobile app and software development solutions for businesses in Karachi and worldwide.",
 
   keywords: [
     "Software House in Karachi",
