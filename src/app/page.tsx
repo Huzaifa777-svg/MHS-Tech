@@ -7,7 +7,7 @@ import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
   title:
-    "MHS Tech – Web Development, WordPress, E-Commerce & Mobile App Development Company in Karachi Pakistan",
+    "MHS Tech – Web Development & E-Commerce Company Karachi",
 
   description:
     "MHS Tech provides professional web, mobile app and software development solutions for businesses in Karachi and worldwide.",
