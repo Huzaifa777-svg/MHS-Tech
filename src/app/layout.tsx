@@ -20,6 +20,16 @@ export const metadata: Metadata = {
   icons: {
     icon: "https://mhs-tech.vercel.app/images/logo.png",
   },
+   applicationName: "MHS Tech",
+
+  openGraph: {
+    title: "MHS Tech",
+    description:
+      "Professional web development, e-commerce and software solutions.",
+    siteName: "MHS Tech",
+    url: "https://mhs-tech.vercel.app",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
