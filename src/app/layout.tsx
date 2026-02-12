@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MHS Tech | Professional Web & Software Development",
-  description: "High-end web, mobile, and WordPress development services by MHS Tech.",
+  title: "Professional Website Development Service | MHS Tech",
+  description: "MHS Tech provide professional website development services including responsive design, modern UX/UI design and heigh performance web solution for business.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "https://mhs-tech.vercel.app/images/logo.png",
   },
 };
 
